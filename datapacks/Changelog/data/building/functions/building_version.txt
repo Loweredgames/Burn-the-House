@@ -1,0 +1,18 @@
+
+Name: Burn the House
+
+Edition: JAVA EDITION
+
+Release: 1.0
+
+Resource_pack: FALSE
+
+Data_pack: TRUE
+
+Stable: IN SVILUPPO
+
+Github: https://github.com/Lorenzo0310200/Burn-the-House
+
+Github_Tag: JE-1a
+
+Website:https://minecraft-map-building-versions.blogspot.com/
