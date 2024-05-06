@@ -8,7 +8,7 @@ Descrizione breve
 
 # Feature: (le feature della mappa)
 
-#Versions: 1.20.6
+# Versions: 1.20.6
 
 READ THE LICENZE BEFORE DOWNLOADING THE DATAPACK:
 https://github.com/Loweredgames/Burn-the-House/blob/main/LICENSE
