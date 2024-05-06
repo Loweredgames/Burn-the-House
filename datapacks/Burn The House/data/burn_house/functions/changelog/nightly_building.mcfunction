@@ -18,7 +18,7 @@ bossbar set minecraft:nightly_building value 100
 
 
 ##NIGHTLY BUILDING VERSION NUMBER (NUMERO DELLA VERSIONE VISTO IN ALTRO, SOLO NELLE VERSIONI DI SVILUPPO)
-bossbar set nightly_building name {"text":"JE-Burn_the_House:NIGHTLY_BUILDING:06.05.2024.12148a[main]","color":"white","bold":true}
+bossbar set nightly_building name {"text":"JE-Burn_the_House:NIGHTLY_BUILDING:06.05.2024.22148a[main]","color":"white","bold":true}
 
 
 ##NIGHTLY BUILDING VERSION (BOSSBAR VISIBILE: SOLO PER GIT, DISABILITARE PER I RILASCI)

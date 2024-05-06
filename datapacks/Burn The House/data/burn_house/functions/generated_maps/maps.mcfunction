@@ -5,56 +5,64 @@
 #READING THE COPYRIGHT (C): <https://www.minecraft.net/en-us/terms>
 
 
-#bh_set#
-scoreboard players add @a bh_set 1
-execute as @a[scores={bh_set=5}] run setblock -215 7 -61 minecraft:redstone_block
-execute as @a[scores={bh_set=10}] run setblock -215 7 -59 minecraft:sand
-execute as @a[scores={bh_set=10}] run setblock -215 7 -61 minecraft:sand
-execute as @a[scores={bh_set=10}] run scoreboard players set @a timer_on 10
-execute as @a[scores={bh_set=11..}] run function bh:lava
-execute as @a[scores={bh_set=11..}] run scoreboard objectives remove bh_set
+###Setup Maps
+execute as @a[scores={burn_house_lava=1}] run scoreboard players set @a burn_house -1
 
 
-#bh_spawn#
-scoreboard objectives add bh_spawn dummy
-execute as @a[scores={bh_spawn=1}] run tp @a -137.46 10.00 71.37
-execute as @a[scores={bh_spawn=1}] run scoreboard objectives remove bh_spawn
-execute as @a[scores={bh_spawn=2}] run tp @a -205.50 10.00 -36.46 -487.70 89.25
-execute as @a[scores={bh_spawn=2}] run scoreboard objectives remove bh_spawn
-execute as @a[scores={bh_spawn=3}] run tp @a -192.51 10.00 -39.30 -180.95 3.90
-execute as @a[scores={bh_spawn=3}] run scoreboard objectives remove bh_spawn
-execute as @a[scores={bh_spawn=4}] run tp @s -205.63 10.00 -53.51 -1440.80 -0.15
-execute as @a[scores={bh_spawn=4}] run scoreboard objectives remove bh_spawn
+##Spawn Lava
+scoreboard players add @a burn_house_lava 1
+execute as @a[scores={burn_house_lava=10}] run scoreboard players set @a burn_house_timer_seconds 10
+execute as @a[scores={burn_house_lava=11}] run function burn_house:generated_maps/lava
+execute as @a[scores={burn_house_lava=12..}] run scoreboard objectives remove burn_house_lava
+scoreboard objectives setdisplay sidebar burn_house_lava
 
 
-##null##
-scoreboard players add @a bh_set_null 1
-execute as @a[scores={bh=1}] run scoreboard objectives add bh_set_null dummy
-execute as @a[scores={bh_set_null=5}] run setblock -215 7 -61 minecraft:redstone_block
-execute as @a[scores={bh_set_null=10}] run setblock -215 7 -59 minecraft:sand
-execute as @a[scores={bh_set_null=10}] run setblock -215 7 -61 minecraft:sand
-execute as @a[scores={bh_set_null=11..}] run scoreboard objectives remove bh_set_null
-execute as @a[scores={bh=1}] run setblock -215 7 -59 minecraft:structure_block[mode=load]{metadata:"",mirror:"NONE",ignoreEntities:1b,powered:0b,seed:0L,author:"LorenzoG03102000",rotation:"NONE",posX:0,mode:"LOAD",posY:1,sizeX:38,posZ:0,integrity:1.0f,showair:0b,name:"minecraft:null",sizeY:38,sizeZ:39,showboundingbox:1b}
-execute as @a[scores={bh=1}] run scoreboard players set @a bh_spawn 1
-execute as @a[scores={bh=1}] run scoreboard players set @a bh 0
+##Player Death
+scoreboard objectives add burn_house dummy
+scoreboard objectives add burn_house_reset_maps dummy
+scoreboard objectives add burn_house_reset deathCount
+execute as @a[scores={burn_house_reset=1..}] run scoreboard players add @a burn_house_reset_maps 1
+execute as @a[scores={burn_house_reset=1..}] run scoreboard players set @a burn_house_timer_seconds 1
+execute as @a[scores={burn_house_reset_maps=60}] run gamemode spectator @a
+execute as @a[scores={burn_house_reset_maps=65}] run tp @a -214 10 -58 -45 0
+#execute as @a[scores={burn_house_reset_maps=100}] run gamemode adventure @a
+execute as @a[scores={burn_house_reset_maps=100}] run scoreboard players set @a burn_house -1
+execute as @a[scores={burn_house_reset_maps=100}] run fill -178 45 -21 -215 41 -59 minecraft:air
+execute as @a[scores={burn_house_reset_maps=100}] run tp @a -138 10 71 0 0
+execute as @a[scores={burn_house_reset_maps=105}] run scoreboard objectives add burn_house_null dummy
+execute as @a[scores={burn_house_reset_maps=120..}] run scoreboard objectives remove burn_house_reset
+execute as @a[scores={burn_house_reset_maps=120..}] run scoreboard objectives remove burn_house_reset_maps
 
 
-##test_map##
-execute as @a[scores={bh=2}] run scoreboard objectives add bh_set dummy
-execute as @a[scores={bh=2}] run setblock -215 7 -59 minecraft:structure_block[mode=load]{metadata:"",mirror:"NONE",ignoreEntities:1b,powered:0b,seed:0L,author:"LorenzoG03102000",rotation:"NONE",posX:0,mode:"LOAD",posY:1,sizeX:38,posZ:0,integrity:1.0f,showair:0b,name:"minecraft:test_map",sizeY:38,sizeZ:39,showboundingbox:1b}
-execute as @a[scores={bh=2}] run scoreboard players set @a bh_spawn 2
-execute as @a[scores={bh=2}] run scoreboard players set @a bh 0
+##Reset Null
+scoreboard players add @a burn_house_null 1
+#Debugexecute as @a[scores={burn_house=0}] run scoreboard objectives add burn_house_null dummy
+execute as @a[scores={burn_house_null=5}] run place template burn_house:null -215 3 -59
+execute as @a[scores={burn_house_null=15..}] run scoreboard objectives remove burn_house_null
 
 
-##Warped_house##
-execute as @a[scores={bh=3}] run scoreboard objectives add bh_set dummy
-execute as @a[scores={bh=3}] run setblock -215 7 -59 minecraft:structure_block[mode=load]{metadata:"",mirror:"NONE",ignoreEntities:1b,powered:0b,seed:0L,author:"LorenzoG03102000",rotation:"NONE",posX:0,mode:"LOAD",posY:1,sizeX:38,posZ:0,integrity:1.0f,showair:0b,name:"minecraft:warped_house",sizeY:38,sizeZ:39,showboundingbox:1b}
-execute as @a[scores={bh=3}] run scoreboard players set @a bh_spawn 3
-execute as @a[scores={bh=3}] run scoreboard players set @a bh 0
+##Map - Test Map
+scoreboard players add @a burn_house_map1 1
+execute as @a[scores={burn_house=1}] run scoreboard objectives add burn_house_map1 dummy
+execute as @a[scores={burn_house_map1=1}] run scoreboard objectives add burn_house_lava dummy
+execute as @a[scores={burn_house_map1=100}] run place template burn_house:test_map -215 3 -59
+execute as @a[scores={burn_house_map1=105}] run tp @a -205.50 10.00 -36.46 -487.70 89.25
+execute as @a[scores={burn_house_map1=110..}] run scoreboard objectives remove burn_house_map1
 
 
-##red_box##
-execute as @a[scores={bh=4}] run scoreboard objectives add bh_set dummy
-execute as @a[scores={bh=4}] run setblock -215 7 -59 minecraft:structure_block[mode=load]{metadata:"",mirror:"NONE",ignoreEntities:1b,powered:0b,seed:0L,author:"LorenzoG03102000",rotation:"NONE",posX:0,mode:"LOAD",posY:1,sizeX:38,posZ:0,integrity:1.0f,showair:0b,name:"minecraft:red_box",sizeY:38,sizeZ:39,showboundingbox:1b}
-execute as @a[scores={bh=4}] run scoreboard players set @a bh_spawn 4
-execute as @a[scores={bh=4}] run scoreboard players set @a bh 0
+##Map - Warped House
+scoreboard players add @a burn_house_map2 1
+execute as @a[scores={burn_house=2}] run scoreboard objectives add burn_house_map2 dummy
+execute as @a[scores={burn_house_map2=1}] run scoreboard objectives add burn_house_lava dummy
+execute as @a[scores={burn_house_map2=100}] run place template burn_house:warped_house -215 3 -59
+execute as @a[scores={burn_house_map2=105}] run tp @p -192.51 10.00 -39.30 -180.95 3.90
+execute as @a[scores={burn_house_map2=110..}] run scoreboard objectives remove burn_house_map2
+
+
+##Map - Red Box
+scoreboard players add @a burn_house_map3 1
+execute as @a[scores={burn_house=3}] run scoreboard objectives add burn_house_map3 dummy
+execute as @a[scores={burn_house_map3=1}] run scoreboard objectives add burn_house_lava dummy
+execute as @a[scores={burn_house_map3=100}] run place template burn_house:red_box -215 3 -59
+execute as @a[scores={burn_house_map3=105}] run tp @p -205.63 10.00 -53.51 -1440.80 -0.15
+execute as @a[scores={burn_house_map3=110..}] run scoreboard objectives remove burn_house_map3

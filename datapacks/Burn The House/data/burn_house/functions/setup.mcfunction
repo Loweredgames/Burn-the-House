@@ -19,21 +19,12 @@ effect give @a minecraft:night_vision 21 250 true
 kill @e[type=bat]
 
 
+##Gamerules
+#da fare
+
+
 ##Functions Setup
 function burn_house:changelog/building
 function burn_house:changelog/nightly_building
-
-
-##Player Death
-scoreboard objectives add burn_house dummy
-scoreboard objectives add burn_house_reset_maps dummy
-scoreboard objectives add burn_house_reset deathCount
-execute as @a[scores={burn_house_reset=1..}] run scoreboard players add @a burn_house_reset_maps 1
-execute as @a[scores={burn_house_reset=1..}] run scoreboard players set @a burn_house_timer_seconds 1
-execute as @a[scores={burn_house_reset_maps=60}] run gamemode spectator @a
-execute as @a[scores={burn_house_reset_maps=65}] run tp @a -214 10 -58 -44 0
-execute as @a[scores={burn_house_reset_maps=100}] run gamemode adventure @a
-execute as @a[scores={burn_house_reset_maps=100}] run scoreboard players set @a burn_house 1
-execute as @a[scores={burn_house_reset_maps=100}] run fill -178 46 -21 -215 46 -59 minecraft:air
-execute as @a[scores={burn_house_reset_maps=104..}] run scoreboard objectives remove burn_house_reset
-execute as @a[scores={burn_house_reset_maps=104..}] run scoreboard objectives remove burn_house_reset_maps
+function burn_house:generated_maps/maps
+function burn_house:timer
