@@ -5,8 +5,10 @@
 #READING THE COPYRIGHT (C): <https://www.minecraft.net/en-us/terms>
 
 
-###Setup Maps
-execute as @a[scores={burn_house_lava=1}] run scoreboard players set @a burn_house -1
+##Setup Maps
+scoreboard players add @a burn_house_tick 1
+execute as @a[scores={burn_house_tick=2}] run scoreboard players set @a burn_house -1
+execute as @a[scores={burn_house_tick=10..}] run scoreboard objectives remove burn_house_tick
 
 
 ##Spawn Lava
@@ -14,7 +16,6 @@ scoreboard players add @a burn_house_lava 1
 execute as @a[scores={burn_house_lava=10}] run scoreboard players set @a burn_house_timer_seconds 10
 execute as @a[scores={burn_house_lava=11}] run function burn_house:generated_maps/lava
 execute as @a[scores={burn_house_lava=12..}] run scoreboard objectives remove burn_house_lava
-scoreboard objectives setdisplay sidebar burn_house_lava
 
 
 ##Player Death
@@ -43,6 +44,7 @@ execute as @a[scores={burn_house_null=15..}] run scoreboard objectives remove bu
 
 ##Map - Test Map
 scoreboard players add @a burn_house_map1 1
+execute as @a[scores={burn_house=1}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=1}] run scoreboard objectives add burn_house_map1 dummy
 execute as @a[scores={burn_house_map1=1}] run scoreboard objectives add burn_house_lava dummy
 execute as @a[scores={burn_house_map1=100}] run place template burn_house:test_map -215 3 -59
@@ -52,6 +54,7 @@ execute as @a[scores={burn_house_map1=110..}] run scoreboard objectives remove b
 
 ##Map - Warped House
 scoreboard players add @a burn_house_map2 1
+execute as @a[scores={burn_house=2}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=2}] run scoreboard objectives add burn_house_map2 dummy
 execute as @a[scores={burn_house_map2=1}] run scoreboard objectives add burn_house_lava dummy
 execute as @a[scores={burn_house_map2=100}] run place template burn_house:warped_house -215 3 -59
@@ -61,6 +64,7 @@ execute as @a[scores={burn_house_map2=110..}] run scoreboard objectives remove b
 
 ##Map - Red Box
 scoreboard players add @a burn_house_map3 1
+execute as @a[scores={burn_house=3}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=3}] run scoreboard objectives add burn_house_map3 dummy
 execute as @a[scores={burn_house_map3=1}] run scoreboard objectives add burn_house_lava dummy
 execute as @a[scores={burn_house_map3=100}] run place template burn_house:red_box -215 3 -59
