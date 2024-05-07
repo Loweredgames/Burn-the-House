@@ -27,4 +27,5 @@ kill @e[type=bat]
 function burn_house:changelog/building
 function burn_house:changelog/nightly_building
 function burn_house:generated_maps/maps
+function burn_house:burns/blocks_burns
 function burn_house:timer

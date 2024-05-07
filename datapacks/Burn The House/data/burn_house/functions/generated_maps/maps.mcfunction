@@ -8,6 +8,7 @@
 ##Setup Maps
 scoreboard players add @a burn_house_tick 1
 execute as @a[scores={burn_house_tick=2}] run scoreboard players set @a burn_house -1
+execute as @a[scores={burn_house_tick=2}] run scoreboard players set @a burn_house_fire -1
 execute as @a[scores={burn_house_tick=10..}] run scoreboard objectives remove burn_house_tick
 
 
@@ -24,6 +25,7 @@ scoreboard objectives add burn_house_reset_maps dummy
 scoreboard objectives add burn_house_reset deathCount
 execute as @a[scores={burn_house_reset=1..}] run scoreboard players add @a burn_house_reset_maps 1
 execute as @a[scores={burn_house_reset=1..}] run scoreboard players set @a burn_house_timer_seconds 1
+execute as @a[scores={burn_house_reset_maps=50}] run scoreboard players set @a burn_house_fire -1
 execute as @a[scores={burn_house_reset_maps=60}] run gamemode spectator @a
 execute as @a[scores={burn_house_reset_maps=65}] run tp @a -214 10 -58 -45 0
 #execute as @a[scores={burn_house_reset_maps=100}] run gamemode adventure @a
