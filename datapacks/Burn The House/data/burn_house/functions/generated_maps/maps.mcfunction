@@ -47,9 +47,9 @@ scoreboard players add @a burn_house_map1 1
 execute as @a[scores={burn_house=1}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=1}] run scoreboard objectives add burn_house_map1 dummy
 execute as @a[scores={burn_house_map1=1}] run scoreboard objectives add burn_house_lava dummy
-execute as @a[scores={burn_house_map1=100}] run place template burn_house:test_map -215 3 -59
-execute as @a[scores={burn_house_map1=105}] run tp @a -205.50 10.00 -36.46 -487.70 89.25
-execute as @a[scores={burn_house_map1=110..}] run scoreboard objectives remove burn_house_map1
+execute as @a[scores={burn_house_map1=50}] run place template burn_house:test_map -215 3 -59
+execute as @a[scores={burn_house_map1=55}] run tp @a -205.50 10.00 -36.46 -487.70 89.25
+execute as @a[scores={burn_house_map1=100..}] run scoreboard objectives remove burn_house_map1
 
 
 ##Map - Warped House
@@ -57,9 +57,9 @@ scoreboard players add @a burn_house_map2 1
 execute as @a[scores={burn_house=2}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=2}] run scoreboard objectives add burn_house_map2 dummy
 execute as @a[scores={burn_house_map2=1}] run scoreboard objectives add burn_house_lava dummy
-execute as @a[scores={burn_house_map2=100}] run place template burn_house:warped_house -215 3 -59
-execute as @a[scores={burn_house_map2=105}] run tp @p -192.51 10.00 -39.30 -180.95 3.90
-execute as @a[scores={burn_house_map2=110..}] run scoreboard objectives remove burn_house_map2
+execute as @a[scores={burn_house_map2=50}] run place template burn_house:warped_house -215 3 -59
+execute as @a[scores={burn_house_map2=55}] run tp @p -192.51 10.00 -39.30 -180.95 3.90
+execute as @a[scores={burn_house_map2=100..}] run scoreboard objectives remove burn_house_map2
 
 
 ##Map - Red Box
@@ -67,6 +67,6 @@ scoreboard players add @a burn_house_map3 1
 execute as @a[scores={burn_house=3}] run scoreboard objectives add burn_house_tick dummy
 execute as @a[scores={burn_house=3}] run scoreboard objectives add burn_house_map3 dummy
 execute as @a[scores={burn_house_map3=1}] run scoreboard objectives add burn_house_lava dummy
-execute as @a[scores={burn_house_map3=100}] run place template burn_house:red_box -215 3 -59
-execute as @a[scores={burn_house_map3=105}] run tp @p -205.63 10.00 -53.51 -1440.80 -0.15
-execute as @a[scores={burn_house_map3=110..}] run scoreboard objectives remove burn_house_map3
+execute as @a[scores={burn_house_map3=50}] run place template burn_house:red_box -215 3 -59
+execute as @a[scores={burn_house_map3=55}] run tp @a -205 5 -52 3 2
+execute as @a[scores={burn_house_map3=100..}] run scoreboard objectives remove burn_house_map3
